@@ -21,7 +21,8 @@ export default class App extends Component {
   
   searchCharacters = () => {
     const { topic, page, perPage } = this.state;
-
+    
+    this.setState({ loading: true });
 
     search({ topic }, { page, perPage })
       .then(({ attributionHTML, data }) => {
@@ -46,7 +47,7 @@ export default class App extends Component {
 
 
   render() {
-    const { characters, page, perPage, totalResults } = this.state;
+    const { characters, page, perPage, totalResults, loading, error } = this.state;
 
 
     return(
@@ -61,6 +62,10 @@ export default class App extends Component {
       </header>
 
       <main>
+      <section className="notifications">
+            {loading && <div>Loading...</div>}
+            {error && <div>Error :( {error.message}</div>}
+      </section>
       <Paging 
               totalResults={totalResults}
               page={page}
