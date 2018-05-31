@@ -13,7 +13,8 @@ export default class App extends Component {
     totalResults: 0,
     page: 1,
     perPage: 20,
-    characters: []
+    characters: [],
+    attributionHTML: ''
   }
   
   searchCharacters = () => {
@@ -21,8 +22,10 @@ export default class App extends Component {
 
 
     search({ topic }, { page, perPage })
-      .then((data) => {
-        console.log(data);
+      .then(({ attributionHTML, data }) => {
+        const totalResults = data.total;
+        const characters = data.results;
+        console.log(characters);
         this.setState({ characters, totalResults, error: null });
       }, error => {
         this.setState({ error });
