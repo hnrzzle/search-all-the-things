@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { search } from '../services/marvelApi';
 import Search from './Search';
 import Characters from './Characters'
+import Paging from './Paging';
 
 
 
@@ -39,9 +40,13 @@ export default class App extends Component {
     this.setState({ topic: search }, this.searchCharacters);
   }
 
+  handlePage = ({ page }) => {
+    this.setState({ page }, this.searchCharacters);
+  };
+
 
   render() {
-    const { characters } = this.state;
+    const { characters, page, perPage, totalResults } = this.state;
 
 
     return(
@@ -56,6 +61,11 @@ export default class App extends Component {
       </header>
 
       <main>
+      <Paging 
+              totalResults={totalResults}
+              page={page}
+              perPage={perPage}
+              onPage={this.handlePage}/>
         {characters ?
         <Characters characters={characters}/>
         : 'Please input a search!'}
