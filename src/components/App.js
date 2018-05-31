@@ -4,12 +4,18 @@ import React, { Component } from 'react';
 
 export default class App extends Component {
 
+  state = {
+    name: '',
+    
+  }
+
   render() {
+
 
 
     return(
     <main>
-      <h1>Is this working</h1>
+      <h1>Marvel Heroes</h1>
     </main>
     );
   }
