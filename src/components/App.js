@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { search } from '../services/marvelApi';
+import Search from './Search';
 
 
 
@@ -34,9 +35,19 @@ export default class App extends Component {
 
 
     return(
-    <main>
-      <h1>Marvel Heroes</h1>
-    </main>
+    <div>
+      <header>
+        <div className="header-container">
+          <h1>Marvel Heroes</h1>
+        </div>
+        <div className="search-container">
+          <Search onSearch={this.handleSearch}/>
+        </div>
+      </header>
+
+      <main>
+      </main>
+    </div>
     );
   }
 
