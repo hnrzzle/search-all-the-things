@@ -16,6 +16,10 @@ export default class App extends Component {
     characters: []
   }
 
+  handleSearch = ({ search }) => {
+    this.setState({ topic: search }, this.searchCharacters);
+  }
+
   searchCharacters = () => {
     const { topic, page, perPage } = this.state;
 

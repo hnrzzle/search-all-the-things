@@ -12,7 +12,7 @@ const throwJson = json => { throw json; };
 const get = url => fetch(url)
   .then(r => r.ok ? r.json() : r.json().then(throwJson));
 
-function search({ topic }, { page = 1, perPage = 20 }) {
+export function search({ topic }, { page = 1, perPage = 20 }) {
   const search = `&nameStartsWith=${topic}`;
   const paging = `&offset=${page * perPage}&limit=${perPage}`;
 
