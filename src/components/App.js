@@ -15,24 +15,26 @@ export default class App extends Component {
     perPage: 20,
     characters: []
   }
-
-  handleSearch = ({ search }) => {
-    this.setState({ topic: search }, this.searchCharacters);
-  }
-
+  
   searchCharacters = () => {
     const { topic, page, perPage } = this.state;
 
 
     search({ topic }, { page, perPage })
-      .then(({ articles, totalResults }) => {
-        this.setState({ articles, totalResults, error: null });
+      .then((data) => {
+        console.log(data);
+        this.setState({ characters, totalResults, error: null });
       }, error => {
         this.setState({ error });
       })
       .then(() => this.setState({ loading: false }));
 
   };
+
+  handleSearch = ({ search }) => {
+    this.setState({ topic: search }, this.searchCharacters);
+  }
+
 
   render() {
 
