@@ -8,9 +8,9 @@ export default class Character extends Component {
     const imgSize = '/portrait_fantastic';
     const { path, extension } = thumbnail;
 
-    const imgLink = `${path}${imgSize}.${extension}`
+    const imgLink = `${path}${imgSize}.${extension}`;
 
-    return(
+    return (
       <li>
         <h2>{name}</h2>
         <img src={imgLink}/>

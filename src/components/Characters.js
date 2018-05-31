@@ -12,7 +12,7 @@ export default class Articles extends Component {
           <Character key={i} character={character}/>
         ))}
       </ul>
-    )
+    );
   }
 
 }
