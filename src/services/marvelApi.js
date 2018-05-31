@@ -14,11 +14,9 @@ const get = url => fetch(url)
 
 export function search({ topic }, { page = 1, perPage = 20 }) {
   const search = `&nameStartsWith=${topic}`;
-  const paging = `&offset=${page * perPage}&limit=${perPage}`;
+  const paging = `&offset=${page * perPage - 20}&limit=${perPage}`;
 
-  const result = get(`${EVERYTHING_URL}${search}${paging}`);
-  console.log(result);
-  return result;
+  return get(`${EVERYTHING_URL}${search}${paging}`);
 }
 
 // proper url format http://gateway.marvel.com/v1/public/characters?nameStartsWith=a&ts=1&apikey=93f45297a2883d101c9b09a662ee1754&hash=7146c279264ea35e0bfb7ea39dfe57c0
