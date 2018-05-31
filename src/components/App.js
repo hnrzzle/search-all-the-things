@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { search } from '../services/marvelApi';
 import Search from './Search';
+import Characters from './Characters'
 
 
 
@@ -13,7 +14,7 @@ export default class App extends Component {
     totalResults: 0,
     page: 1,
     perPage: 20,
-    characters: [],
+    characters: null,
     attributionHTML: ''
   }
   
@@ -40,7 +41,7 @@ export default class App extends Component {
 
 
   render() {
-
+    const { characters } = this.state;
 
 
     return(
@@ -55,11 +56,11 @@ export default class App extends Component {
       </header>
 
       <main>
+        {characters ?
+        <Characters characters={characters}/>
+        : 'Please input a search!'}
       </main>
     </div>
     );
   }
-
-
-
 }

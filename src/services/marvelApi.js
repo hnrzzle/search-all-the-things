@@ -19,4 +19,4 @@ export function search({ topic }, { page = 1, perPage = 20 }) {
   return get(`${EVERYTHING_URL}${search}${paging}`);
 }
 
-// proper url format http://gateway.marvel.com/v1/public/characters?nameStartsWith=a&ts=1&apikey=93f45297a2883d101c9b09a662ee1754&hash=7146c279264ea35e0bfb7ea39dfe57c0
+// proper url format should look like http://gateway.marvel.com/v1/public/characters?nameStartsWith=a&ts=1&apikey=93f45297a2883d101c9b09a662ee1754&hash=7146c279264ea35e0bfb7ea39dfe57c0
