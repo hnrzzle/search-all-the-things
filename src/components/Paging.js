@@ -15,7 +15,7 @@ export default class Paging extends Component {
     const totalPages = Math.ceil(totalResults / perPage);
     return (
       <div>
-        <p>Searching for {topic}, {totalResults} results found</p>
+        <p>Searched for {topic}: {totalResults} results found</p>
         &nbsp;
         <span>Page {page} of {totalPages}</span>
         &nbsp;
@@ -23,5 +23,5 @@ export default class Paging extends Component {
         <button onClick={() => this.handlePage(+1)} disabled={page === totalPages}>Next &gt;</button>
       </div>
     );
-  }
+  } 
 }

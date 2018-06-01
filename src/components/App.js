@@ -65,12 +65,14 @@ export default class App extends Component {
             {loading && <div>Loading...</div>}
             {error && <div>Error :( {error.message}</div>}
           </section>
-          <Paging 
-            topic={topic}
-            totalResults={totalResults}
-            page={page}
-            perPage={perPage}
-            onPage={this.handlePage}/>
+          {topic ?
+            <Paging 
+              topic={topic}
+              totalResults={totalResults}
+              page={page}
+              perPage={perPage}
+              onPage={this.handlePage}/>
+            : null}
           {characters ?
             <Characters characters={characters}/>
             : 'Please input a search!'}
