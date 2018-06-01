@@ -25,7 +25,7 @@ export default class App extends Component {
     this.setState({ loading: true });
 
     search({ topic }, { page, perPage })
-      .then(({ attributionHTML, data }) => {
+      .then(({ attributionHTML, data }) => { //eslint-disable-line
         const totalResults = data.total;
         const characters = data.results;
         this.setState({ characters, totalResults, error: null });
@@ -46,7 +46,7 @@ export default class App extends Component {
 
 
   render() {
-    const { characters, page, perPage, totalResults, loading, error } = this.state;
+    const { characters, page, perPage, totalResults, loading, error, topic } = this.state;
 
 
     return (
@@ -66,6 +66,7 @@ export default class App extends Component {
             {error && <div>Error :( {error.message}</div>}
           </section>
           <Paging 
+            topic={topic}
             totalResults={totalResults}
             page={page}
             perPage={perPage}

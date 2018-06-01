@@ -8,13 +8,15 @@ export default class Paging extends Component {
   }
 
   render() {
-    const { totalResults, page, perPage } = this.props;
+    const { totalResults, page, perPage, topic } = this.props;
     
     if(!totalResults) return <div>No results found, try another search</div>;
 
     const totalPages = Math.ceil(totalResults / perPage);
     return (
       <div>
+        <p>Searching for {topic}, {totalResults} results found</p>
+        &nbsp;
         <span>Page {page} of {totalPages}</span>
         &nbsp;
         <button onClick={() => this.handlePage(-1)} disabled={page === 1}>&lt; Prev</button>
