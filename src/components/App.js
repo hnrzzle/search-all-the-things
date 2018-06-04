@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { search } from '../services/marvelApi';
 import Search from './Search';
 import Characters from './Characters';
@@ -50,33 +51,35 @@ export default class App extends Component {
 
 
     return (
-      <div>
-        <header>
-          <div className="header-container">
-            <h1>Marvel Heroes</h1>
-          </div>
-          <div className="search-container">
-            <Search onSearch={this.handleSearch}/>
-          </div>
-        </header>
+      <Router>
+        <div>
+          <header>
+            <div className="header-container">
+              <h1>Marvel Heroes</h1>
+            </div>
+            <div className="search-container">
+              <Search onSearch={this.handleSearch}/>
+            </div>
+          </header>
 
-        <main>
-          <section className="notifications">
-            {loading && <div>Loading...</div>}
-            {error && <div>Error :( {error.message}</div>}
-          </section>
-          {topic &&
-            <Paging 
-              topic={topic}
-              totalResults={totalResults}
-              page={page}
-              perPage={perPage}
-              onPage={this.handlePage}/>}
-          {characters ?
-            <Characters characters={characters}/>
-            : 'Please input a search!'}
-        </main>
-      </div>
+          <main>
+            <section className="notifications">
+              {loading && <div>Loading...</div>}
+              {error && <div>Error :( {error.message}</div>}
+            </section>
+            {topic &&
+              <Paging 
+                topic={topic}
+                totalResults={totalResults}
+                page={page}
+                perPage={perPage}
+                onPage={this.handlePage}/>}
+            {characters ?
+              <Characters characters={characters}/>
+              : 'Please input a search!'}
+          </main>
+        </div>
+      </Router>
     );
   }
 }
