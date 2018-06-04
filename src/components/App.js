@@ -41,12 +41,9 @@ export default class App extends Component {
 
   };
 
-
-
   handlePage = ({ page }) => {
     this.setState({ page }, this.searchCharacters);
   };
-
 
   render() {
     const { characters, page, perPage, totalResults, loading, error, topic } = this.state;
