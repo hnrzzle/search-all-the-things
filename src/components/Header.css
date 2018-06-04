@@ -1,0 +1,9 @@
+:local(.header) {
+
+  background: cornflowerblue;
+
+  h1 {
+    display: inline-block;
+    font-size: 22px;
+  }
+}

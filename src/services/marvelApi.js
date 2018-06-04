@@ -17,6 +17,10 @@ export function checkResponseData(response) {
   return response;
 }
 
+// export function getChar(id) {
+//   const url = 
+// }
+
 export function search({ topic }, { page = 1, perPage = 20 }) {
   const search = `&nameStartsWith=${topic}`;
   const paging = `&offset=${page * perPage - 20}&limit=${perPage}`;

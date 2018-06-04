@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { search } from '../services/marvelApi';
-import Search from './Search';
+import Header from './Header';
+import Search from '../components/search/Search';
 import Characters from './Characters';
+import CharDetail from './CharDetail';
 import Paging from './Paging';
+
+import './App.css';
 
 
 
@@ -37,9 +41,7 @@ export default class App extends Component {
 
   };
 
-  handleSearch = ({ search }) => {
-    this.setState({ topic: search }, this.searchCharacters);
-  };
+
 
   handlePage = ({ page }) => {
     this.setState({ page }, this.searchCharacters);
@@ -53,16 +55,16 @@ export default class App extends Component {
     return (
       <Router>
         <div>
-          <header>
-            <div className="header-container">
-              <h1>Marvel Heroes</h1>
-            </div>
-            <div className="search-container">
-              <Search onSearch={this.handleSearch}/>
-            </div>
-          </header>
-
+          <Header/>
           <main>
+            <Switch>
+              {/* <Route exact path="/" component={Home}/>a */}
+              <Route exact path="/search" component={Search}/>
+              <Route exact path="/char/:id" render={({ match, history }) => {
+                return <CharDetail marvelID={match.params.id} history={history}/>;
+              }}/>
+              <Redirect to="/"/>
+            </Switch>
             <section className="notifications">
               {loading && <div>Loading...</div>}
               {error && <div>Error :( {error.message}</div>}
