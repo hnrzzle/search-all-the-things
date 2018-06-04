@@ -9,13 +9,17 @@ const getSearch = location => location ? location.search : '';
 
 export default class Search extends Component {
 
-  static PropTypes = {
+  static propTypes = {
     history: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired
   };
 
   state = {
-    search: ''
+    characters: null,
+    toalResults: 0,
+    error: null,
+    searchTerm: '',
+    page: 1
   };
 
   componentDidMount() {
@@ -28,26 +32,41 @@ export default class Search extends Component {
     if(current === next) return;
     this.searchFromQuery(next);
   }
-  
-  handleChange = ({ target }) => {
-    this.setState({ search: target.value });
-  };
 
-  handleSubmit = event => {
-    event.preventDefault();
-    this.props.onSearch(this.state);
+  searchFromQuery(query) {
+    const { search: searchTerm } = queryString.parse(query);
+    this.setState({ searchTerm });
+    if(!searchTerm) return;
+    
+    search(searchTerm, 1, 10)
+      .then(({ data }) => {
+        console.log(data);
+        const totalResults = data.total;
+        const characters = data.results;
+        this.setState({ characters, totalResults, error: null });
+      })
+      .catch(error => {
+        this.setState({ error });
+      });
+  }
+
+  handleSearch = searchTerm => {
+    this.setState({ error: null });
+
+    this.props.history.push({
+      search: searchTerm ? queryString.stringify({ search: searchTerm }) : ''
+    });
   };
 
   render() {
-    const { search } = this.state;
+    const { characters, error, searchTerm } = this.state;
 
     return (
-      <form className="search-form" onSubmit={event => this.handleSubmit(event)}>
-        <label>
-          <input value={search} onChange={this.handleChange}/>
-        </label>
-        <button>Search</button>
-      </form>
+      <div>
+        <SearchForm searchTerm={searchTerm} onSearch={this.handleSearch}/>
+        {error && <div>{error}</div>}
+        {(!error && characters) && <Characters characters={characters}/>}
+      </div>
     );
   }
 }

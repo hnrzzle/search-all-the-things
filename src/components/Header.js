@@ -16,9 +16,6 @@ export default class Header extends Component {
         <div className="header-container">
           <h1>Marvel Heroes</h1>
         </div>
-        <div className="search-container">
-          <Search onSearch={this.handleSearch}/>
-        </div>
       </header>
     );
   }

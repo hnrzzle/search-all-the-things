@@ -46,7 +46,7 @@ export default class App extends Component {
   };
 
   render() {
-    const { characters, page, perPage, totalResults, loading, error, topic } = this.state;
+    const { characters, page, perPage, totalResults, topic } = this.state;
 
 
     return (
@@ -57,15 +57,11 @@ export default class App extends Component {
             <Switch>
               {/* <Route exact path="/" component={Home}/>a */}
               <Route exact path="/search" component={Search}/>
-              <Route exact path="/char/:id" render={({ match, history }) => {
+              </Switch>
+              {/* <Route exact path="/char/:id" render={({ match, history }) => {
                 return <CharDetail marvelID={match.params.id} history={history}/>;
               }}/>
               <Redirect to="/"/>
-            </Switch>
-            <section className="notifications">
-              {loading && <div>Loading...</div>}
-              {error && <div>Error :( {error.message}</div>}
-            </section>
             {topic &&
               <Paging 
                 topic={topic}
@@ -75,7 +71,7 @@ export default class App extends Component {
                 onPage={this.handlePage}/>}
             {characters ?
               <Characters characters={characters}/>
-              : 'Please input a search!'}
+              : 'Please input a search!'} */}
           </main>
         </div>
       </Router>

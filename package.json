@@ -45,6 +45,7 @@
     "postcss": "^6.0.22",
     "postcss-loader": "^2.1.5",
     "precss": "^3.1.2",
+    "prop-types": "^15.6.1",
     "style-loader": "^0.21.0",
     "url-loader": "^1.0.1",
     "webpack": "^4.10.2",
@@ -52,7 +53,6 @@
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
-    "prop-types": "^15.6.1",
     "query-string": "^6.1.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
