@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import styles from './Character.css';
 export default class Character extends Component {
 
   render() {
@@ -12,7 +13,7 @@ export default class Character extends Component {
     const imgLink = `${path}${imgSize}.${extension}`;
 
     return (
-      <li>
+      <li className={styles.character}>
         <Link to={`/characters/${marvelID}`}>
           <h2>{name}</h2>
           <img src={imgLink}/>
