@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Characters from '../Characters';
 import SearchForm from '../search/SearchForm';
 import { search } from '../../services/marvelApi';
+import Paging from '../Paging';
 import PropTypes from 'prop-types';
 import queryString from 'query-string';
 
@@ -40,7 +41,6 @@ export default class Search extends Component {
     
     search(searchTerm, 1, 10)
       .then(({ data }) => {
-        console.log(data);
         const totalResults = data.total;
         const characters = data.results;
         this.setState({ characters, totalResults, error: null });
@@ -59,14 +59,24 @@ export default class Search extends Component {
   };
 
   render() {
-    const { characters, error, searchTerm } = this.state;
+    const { characters, error, searchTerm, totalResults, page, perPage } = this.state;
 
     return (
       <div>
         <SearchForm searchTerm={searchTerm} onSearch={this.handleSearch}/>
         {error && <div>{error}</div>}
-        {(!error && characters) && <Characters characters={characters}/>}
+        {searchTerm &&
+              <Paging 
+                searchTerm={searchTerm}
+                totalResults={totalResults}
+                page={page}
+                perPage={perPage}
+                onPage={this.handlePage}/>}
+        {characters ?
+          <Characters characters={characters}/>
+          : 'Please input a search!'}
       </div>
+      
     );
   }
 }
