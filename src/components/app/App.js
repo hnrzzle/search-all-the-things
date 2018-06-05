@@ -33,7 +33,7 @@ export default class App extends Component {
             <Route exact path="/characters/:id" render={({ match, history }) => {
               return <CharDetail marvelID={match.params.id} history={history}/>;
             }}/>
-            <Redirect to="/"/>
+            {/* <Redirect to="/"/> */}
           </main>
         </div>
       </Router>

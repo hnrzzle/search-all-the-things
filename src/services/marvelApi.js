@@ -18,7 +18,7 @@ export function checkResponseData(response) {
 }
 
 export function getChar(id) {
-  const url = `${BASE_URL}/${id}${API_QUERY}${HASH_QUERY}${TS_QUERY}`;
+  const url = `${BASE_URL}/${id}${TS_QUERY}${API_QUERY}${HASH_QUERY}`;
   return get(url);
 }
 
