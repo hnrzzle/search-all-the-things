@@ -41,7 +41,6 @@ export default class Search extends Component {
     
     search(searchTerm, 1, 10)
       .then(({ data }) => {
-        console.log(data);
         const totalResults = data.total;
         const characters = data.results;
         this.setState({ characters, totalResults, error: null });

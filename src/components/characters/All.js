@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Characters from '../characters/Characters';
-import Paging from '../app/Paging';
 import PropTypes from 'prop-types';
 import { getAllChars } from '../../services/marvelApi';
 
