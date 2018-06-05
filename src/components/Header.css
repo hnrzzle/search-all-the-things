@@ -6,4 +6,14 @@
     display: inline-block;
     font-size: 22px;
   }
+  ul {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-around;
+    padding-bottom: 10px;
+  }
+  a {
+    color: white;
+    text-decoration: none;
+  }
 }
