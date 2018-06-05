@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Route } from 'react-router-dom';
 import styles from './Header.css';
-import Search from './search/Search';
 
 export default class Header extends Component {
 

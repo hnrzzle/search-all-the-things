@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Characters from '../Characters';
+import Characters from '../characters/Characters';
 import SearchForm from '../search/SearchForm';
 import { search } from '../../services/marvelApi';
-import Paging from '../Paging';
+import Paging from '../app/Paging';
 import PropTypes from 'prop-types';
 import queryString from 'query-string';
 
@@ -41,6 +41,7 @@ export default class Search extends Component {
     
     search(searchTerm, 1, 10)
       .then(({ data }) => {
+        console.log(data);
         const totalResults = data.total;
         const characters = data.results;
         this.setState({ characters, totalResults, error: null });

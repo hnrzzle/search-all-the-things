@@ -17,9 +17,10 @@ export function checkResponseData(response) {
   return response;
 }
 
-// export function getChar(id) {
-//   const url = 
-// }
+export function getChar(id) {
+  const url = `${BASE_URL}/${id}${API_QUERY}${HASH_QUERY}${TS_QUERY}`;
+  return get(url);
+}
 
 export function search(topic, { page = 1, perPage = 20 }) {
   const search = `&nameStartsWith=${topic}`;

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-
+import { Link } from 'react-router-dom';
 export default class Character extends Component {
 
   render() {
-    const { name, description, thumbnail } = this.props.character;
+    const { name, id, thumbnail } = this.props.character;
 
+    const marvelID = id;
     const imgSize = '/portrait_fantastic';
     const { path, extension } = thumbnail;
 
@@ -12,9 +13,10 @@ export default class Character extends Component {
 
     return (
       <li>
-        <h2>{name}</h2>
-        <img src={imgLink}/>
-        <p>{description}</p>
+        <Link to={`/characters/${marvelID}`}>
+          <h2>{name}</h2>
+          <img src={imgLink}/>
+        </Link>
       </li>
     );
   }
