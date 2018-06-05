@@ -20,7 +20,8 @@ export default class Search extends Component {
     toalResults: 0,
     error: null,
     searchTerm: '',
-    page: 1
+    page: 1,
+    perPage: 20
   };
 
   componentDidMount() {
@@ -56,6 +57,10 @@ export default class Search extends Component {
     this.props.history.push({
       search: searchTerm ? queryString.stringify({ search: searchTerm }) : ''
     });
+  };
+
+  handlePage = ({ page }) => {
+    this.setState({ page }, this.searchCharacters);
   };
 
   render() {
