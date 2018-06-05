@@ -22,6 +22,11 @@ export function getChar(id) {
   return get(url);
 }
 
+export function getAllChars() {
+  const url = `${EVERYTHING_URL}`;
+  return get(url);
+}
+
 export function search(topic, { page = 1, perPage = 20 }) {
   const search = `&nameStartsWith=${topic}`;
   const paging = `&offset=${page * perPage - 20}&limit=${perPage}`;
