@@ -40,7 +40,7 @@ export default class Search extends Component {
     this.setState({ searchTerm });
     if(!searchTerm) return;
     
-    search(searchTerm, 1, 10)
+    search(searchTerm, this.state.page, this.state.perPage)
       .then(({ data }) => {
         const totalResults = data.total;
         const characters = data.results;
@@ -51,8 +51,23 @@ export default class Search extends Component {
       });
   }
 
+  searchCharacters = () => {
+    const { searchTerm, page, perPage } = this.state;
+    
+
+    search({ searchTerm }, { page, perPage })
+      .then(({ attributionHTML, data }) => { //eslint-disable-line
+        const totalResults = data.total;
+        const characters = data.results;
+        this.setState({ characters, totalResults, error: null });
+      }, error => {
+        this.setState({ error });
+      })
+
+  };
+
   handleSearch = searchTerm => {
-    this.setState({ error: null });
+    this.setState({ error: null }); 
 
     this.props.history.push({
       search: searchTerm ? queryString.stringify({ search: searchTerm }) : ''

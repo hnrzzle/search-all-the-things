@@ -11,7 +11,7 @@ export default class Paging extends Component {
     const { totalResults, page, perPage, searchTerm } = this.props;
     
     if(!totalResults) return <div>No results found, try another search</div>;
-    
+
 
     const totalPages = Math.ceil(totalResults / perPage);
     return (
