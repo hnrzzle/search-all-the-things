@@ -12,7 +12,7 @@ export default class Header extends Component {
     return (
       <header className={styles.header}>
         <div className="header-container">
-          <h1>Marvel Heroes</h1>
+          <Link to="/"><h1>Marvel Heroes</h1></Link>
         </div>
         <ul>
           <li><Link to="/">Home</Link></li>

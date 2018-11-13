@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Header from './Header';
+import Footer from './Footer';
 import Search from '../search/Search';
 import CharDetail from '../characters/CharDetail';
 import Home from '../characters/Home';
@@ -26,6 +27,7 @@ export default class App extends Component {
             }}/>
             <Redirect to="/"/>
           </main>
+          <Footer/>
         </div>
       </Router>
     );
