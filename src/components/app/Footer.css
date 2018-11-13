@@ -6,4 +6,8 @@ footer {
   background: #e23636;
   color: white;
   text-align: center;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
