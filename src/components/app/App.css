@@ -1,0 +1,10 @@
+body {
+  font-family: sans-serif;
+  margin: 0px;
+  padding: 0px;
+}
+
+main {
+  max-width: 90%;
+  margin: auto auto;
+}

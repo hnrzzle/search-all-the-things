@@ -1,0 +1,21 @@
+:local(.header) {
+
+  background: #e23636;
+
+  h1 {
+    display: inline-block;
+    font-size: 30px;
+    padding: 10px;
+    margin: 5px;
+  }
+  ul {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-around;
+    padding-bottom: 10px;
+  }
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
