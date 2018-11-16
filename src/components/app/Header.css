@@ -11,8 +11,11 @@
   ul {
     display: flex;
     list-style-type: none;
-    justify-content: space-around;
+    justify-content: flex-end;
     padding-bottom: 10px;
+  }
+  li {
+    margin-right: 1rem;
   }
   a {
     color: white;
