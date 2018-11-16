@@ -4,13 +4,26 @@ html, body {
   padding: 0px;
   height: 100%;
 }
-
-body {
-  min-height: 100%;
-  position: relative;
+.app, .root {
+  min-height: 100vh;
 }
 
 main {
   max-width: 92%;
   margin: 0 auto;
+}
+
+.push {
+  height: 1rem;
+}
+
+footer {
+  display: block;
+  padding: .8rem 0;
+  margin: auto auto;
+  margin-top: 1rem;
+  width: 100%;
+  background: #e23636;
+  color: white;
+  text-align: center;
 }
