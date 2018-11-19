@@ -1,6 +1,8 @@
 :local(.header) {
 
   background: #e23636;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+  margin-bottom: 1rem;
 
   h1 {
     display: inline-block;
@@ -12,10 +14,18 @@
     display: flex;
     list-style-type: none;
     justify-content: flex-end;
-    padding-bottom: 10px;
+    padding: 0px;
+    margin: 0px;
   }
   li {
-    margin-right: 1rem;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border-bottom: #e23636 2px solid;
+    
+  }
+  li:hover {
+    border-bottom: white 2px solid;
+    background-color: rgba(255, 255, 255, 0.1);
   }
   a {
     color: white;
