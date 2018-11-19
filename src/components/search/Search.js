@@ -17,7 +17,7 @@ export default class Search extends Component {
 
   state = {
     characters: null,
-    toalResults: 0,
+    totalResults: 0,
     error: null,
     searchTerm: '',
     page: 1,
@@ -39,8 +39,10 @@ export default class Search extends Component {
     const { search: searchTerm } = queryString.parse(query);
     this.setState({ searchTerm });
     if(!searchTerm) return;
+
+    console.log(this.state.page);
     
-    search(searchTerm, 1, 10)
+    search(searchTerm, this.state)
       .then(({ data }) => {
         const totalResults = data.total;
         const characters = data.results;
@@ -60,7 +62,7 @@ export default class Search extends Component {
   };
 
   handlePage = ({ page }) => {
-    this.setState({ page }, this.searchCharacters);
+    this.setState({ page }, this.searchFromQuery(this.props.location.search));
   };
 
   render() {
