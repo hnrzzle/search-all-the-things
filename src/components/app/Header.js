@@ -11,9 +11,7 @@ export default class Header extends Component {
   render() {
     return (
       <header className={styles.header}>
-        <div className="header-container">
-          <Link to="/"><h1>Marvel Heroes</h1></Link>
-        </div>
+        <Link to="/"><h1>Marvel Heroes</h1></Link>
         <ul>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/search">Search</Link></li>
