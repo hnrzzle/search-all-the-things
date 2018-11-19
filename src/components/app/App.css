@@ -9,7 +9,6 @@ html, body {
 }
 
 main {
-  max-width: 92%;
   margin: 0 auto;
 }
 
@@ -26,4 +25,10 @@ footer {
   background: #e23636;
   color: white;
   text-align: center;
+}
+
+@media (min-width: 865px) {
+  main {
+    max-width: 92%;
+  }
 }
