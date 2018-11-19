@@ -30,6 +30,7 @@ export default class Search extends Component {
 
   UNSAFE_componentWillReceiveProps({ location }) {
     const next = getSearch(location);
+    console.log('next', next);
     const current = getSearch(this.props.location);
     if(current === next) return;
     this.searchFromQuery(next);
@@ -62,7 +63,9 @@ export default class Search extends Component {
   };
 
   handlePage = ({ page }) => {
-    this.setState({ page }, this.searchFromQuery(this.props.location.search));
+    this.setState({ page: page++ }, () => {
+      this.searchFromQuery(this.props.location.search);
+    });
   };
 
   render() {
