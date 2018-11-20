@@ -1,14 +1,30 @@
 :local(.searchForm) {
-  margin: 0 auto;
+  $bar-h: 45px;
+  $icon-h: calc($bar-h /3);
+  $color:rgb(210, 82, 127);
   text-align: center;
-
-  form {
-    margin: 0 auto;
-  }
-
+  
   input {
     height: 1.2rem;
     width: 50%;
+  }
+
+  .search-icon {
+    color: #fff;
+    width: $icon-h;
+    height: $icon-h;
+    border: solid 1px currentColor;
+    border-radius: 100%;
+    transform: rotate(-45deg);
+  }
+  .search-icon:before {
+    content: '';
+    position: absolute;
+    top: $icon-h;
+    left: calc($icon-h/2.5);
+    height: calc($icon-h/2);
+    width: 1px;
+    background-color: currentColor;
   }
 
 }
