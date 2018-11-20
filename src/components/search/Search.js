@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Characters from '../characters/Characters';
 import SearchForm from '../search/SearchForm';
 import { search } from '../../services/marvelApi';
@@ -72,7 +72,7 @@ export default class Search extends Component {
     const { characters, error, searchTerm, totalResults, page, perPage } = this.state;
 
     return (
-      <div>
+      <Fragment>
         <SearchForm searchTerm={searchTerm} onSearch={this.handleSearch}/>
         {error && <div>{error}</div>}
         {searchTerm &&
@@ -85,7 +85,7 @@ export default class Search extends Component {
         {characters ?
           <Characters characters={characters}/>
           : 'Please input a search!'}
-      </div>
+      </Fragment>
       
     );
   }

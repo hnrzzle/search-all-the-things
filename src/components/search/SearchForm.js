@@ -43,11 +43,9 @@ export default class SearchForm extends Component {
     return (
       <div className={styles.searchForm}>
         <form onSubmit={this.handleSubmit}>
-          <label>
-            <input value={current}
-              placeholder="Search..."
-              onChange={this.handleChange}/>
-          </label>
+          <input value={current}
+            placeholder="Search..."
+            onChange={this.handleChange}/>
           <button className="search-button">
             <div className="search-icon"></div>
           </button>
