@@ -41,8 +41,6 @@ export default class Search extends Component {
     this.setState({ searchTerm });
     if(!searchTerm) return;
 
-    console.log(this.state.page);
-    
     search(searchTerm, this.state)
       .then(({ data }) => {
         const totalResults = data.total;

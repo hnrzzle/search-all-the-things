@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from './Paging.css';
 
 export default class Paging extends Component {
 
@@ -15,13 +16,15 @@ export default class Paging extends Component {
 
     const totalPages = Math.ceil(totalResults / perPage);
     return (
-      <div>
+      <div className={styles.paging}>
         <h2>{totalResults} results found for &quot;{searchTerm}&quot;</h2>
         &nbsp;
-        <span>Page {page} of {totalPages}</span>
-        &nbsp;
-        <button onClick={() => this.handlePage(-1)} disabled={page === 1}>&lt; Prev</button>
-        <button onClick={() => this.handlePage(+1)} disabled={page === totalPages}>Next &gt;</button>
+        <div className="pagination">
+          <button className="prev" onClick={() => this.handlePage(-1)} disabled={page === 1}>Prev</button>
+          <span>Page {page} of {totalPages}</span>
+          &nbsp;
+          <button className="next" onClick={() => this.handlePage(+1)} disabled={page === totalPages}>Next</button>
+        </div>
       </div>
     );
   } 
