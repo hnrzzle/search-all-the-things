@@ -5,6 +5,7 @@
     border-radius: 5px;
     border: 1px solid #555;
     margin-bottom: .8rem;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
   }
   button {
     height: 3rem;
@@ -23,9 +24,11 @@
   .prev {
     border-right: 1px solid #555;
     margin-right: 10px;
+    border-radius: 5px 0px 0px 5px;
   }
   .next {
     border-left: 1px solid #555;
     margin-left: 10px;
+    border-radius: 0px 5px 5px 0px;
   }
 }
