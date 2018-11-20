@@ -1,8 +1,9 @@
 :local(.paging) {
+  text-align: center;
   .pagination {
     display: inline-block;
-    border-radius: 3px;
-    border: 1px solid #777;
+    border-radius: 5px;
+    border: 1px solid #555;
     margin-bottom: .8rem;
   }
   button {
@@ -20,11 +21,11 @@
     background-color: #eee;
   }
   .prev {
-    border-right: 1px solid #777;
+    border-right: 1px solid #555;
     margin-right: 10px;
   }
   .next {
-    border-left: 1px solid #777;
+    border-left: 1px solid #555;
     margin-left: 10px;
   }
 }
