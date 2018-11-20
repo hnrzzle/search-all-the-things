@@ -1,6 +1,7 @@
 :local(.characters) {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-content: space-around;
   margin: 0;
   padding: 0;
   flex-wrap: wrap;

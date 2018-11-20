@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Characters from '../characters/Characters';
 import SearchForm from '../search/SearchForm';
 import { search } from '../../services/marvelApi';
@@ -17,7 +17,7 @@ export default class Search extends Component {
 
   state = {
     characters: null,
-    toalResults: 0,
+    totalResults: 0,
     error: null,
     searchTerm: '',
     page: 1,
@@ -30,6 +30,7 @@ export default class Search extends Component {
 
   UNSAFE_componentWillReceiveProps({ location }) {
     const next = getSearch(location);
+    console.log('next', next);
     const current = getSearch(this.props.location);
     if(current === next) return;
     this.searchFromQuery(next);
@@ -39,8 +40,8 @@ export default class Search extends Component {
     const { search: searchTerm } = queryString.parse(query);
     this.setState({ searchTerm });
     if(!searchTerm) return;
-    
-    search(searchTerm, 1, 10)
+
+    search(searchTerm, this.state)
       .then(({ data }) => {
         const totalResults = data.total;
         const characters = data.results;
@@ -60,14 +61,16 @@ export default class Search extends Component {
   };
 
   handlePage = ({ page }) => {
-    this.setState({ page }, this.searchCharacters);
+    this.setState({ page: page++ }, () => {
+      this.searchFromQuery(this.props.location.search);
+    });
   };
 
   render() {
     const { characters, error, searchTerm, totalResults, page, perPage } = this.state;
 
     return (
-      <div>
+      <Fragment>
         <SearchForm searchTerm={searchTerm} onSearch={this.handleSearch}/>
         {error && <div>{error}</div>}
         {searchTerm &&
@@ -80,7 +83,7 @@ export default class Search extends Component {
         {characters ?
           <Characters characters={characters}/>
           : 'Please input a search!'}
-      </div>
+      </Fragment>
       
     );
   }

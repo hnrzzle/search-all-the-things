@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import styles from './SearchForm.css';
+import styles from './SearchForm.css';
 
 export default class SearchForm extends Component {
 
@@ -41,14 +41,14 @@ export default class SearchForm extends Component {
     const { current, loading, error } = this.state;
 
     return (
-      <div>
-        <form className="search-form" onSubmit={this.handleSubmit}>
-          <label>
-            <input value={current}
-              placeholder="Please Input a Search"
-              onChange={this.handleChange}/>
-          </label>
-          <button>Search</button>
+      <div className={styles.searchForm}>
+        <form onSubmit={this.handleSubmit}>
+          <input value={current}
+            placeholder="Search..."
+            onChange={this.handleChange}/>
+          <button className="search-button">
+            <div className="search-icon"></div>
+          </button>
         </form>
         <section className="notifications">
           {loading && <div>Loading...</div>}

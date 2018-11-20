@@ -9,8 +9,8 @@ html, body {
 }
 
 main {
-  max-width: 92%;
   margin: 0 auto;
+  max-width: 92%;
 }
 
 .push {
