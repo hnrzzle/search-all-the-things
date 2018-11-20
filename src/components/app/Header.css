@@ -1,6 +1,7 @@
 :local(.header) {
 
-  background: #e23636;
+  background: linear-gradient(170deg, #e23636, #bd2e2e); ;
+  // background: linear-gradient(90deg, #e23636, #bd2e2e); ;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
   margin-bottom: 1rem;
 
@@ -20,7 +21,7 @@
   li {
     font-size: 1.2rem;
     padding: 0.5rem;
-    border-bottom: #e23636 2px solid;
+    border-bottom: #bd2e2e 2px solid;
     
   }
   li:hover {
