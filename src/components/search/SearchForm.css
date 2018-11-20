@@ -1,0 +1,14 @@
+:local(.searchForm) {
+  margin: 0 auto;
+  text-align: center;
+
+  form {
+    margin: 0 auto;
+  }
+
+  input {
+    height: 1.2rem;
+    width: 50%;
+  }
+
+}
